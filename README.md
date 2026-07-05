@@ -7,7 +7,7 @@ The project demonstrates the complete Machine Learning lifecycle including data 
 ---
 ## 🌐 Live Demo
 
-**Web App:** https://<your-streamlit-app>.streamlit.app
+**Web App:** https://loan-eligibility-predictor.streamlit.app
 
 **API Documentation:** https://loan-eligibility-api-bj5j.onrender.com/docs
 
