@@ -5,6 +5,12 @@ An end-to-end Machine Learning web application that predicts whether a loan appl
 The project demonstrates the complete Machine Learning lifecycle including data preprocessing, feature engineering, model training, REST API development using FastAPI, and an interactive frontend built with Streamlit.
 
 ---
+## 🌐 Live Demo
+
+**Web App:** https://<your-streamlit-app>.streamlit.app
+
+**API Documentation:** https://loan-eligibility-api-bj5j.onrender.com/docs
+
 
 # 📌 Features
 
