@@ -103,10 +103,8 @@ st.divider()
 left, right = st.columns(2, gap="large")
 
 with left:
-
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("👤 Applicant Details")
-
+    with st.container(border=True):
+        st.subheader("👤 Applicant Details")
     gender = st.selectbox(
         "Gender",
         ["Male", "Female"]
@@ -134,10 +132,8 @@ with left:
     st.markdown("</div>", unsafe_allow_html=True)
 
 with right:
-
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("🏦 Loan Details")
-
+    with st.container(border=True):
+        st.subheader("🏦 Loan Details")
     applicant_income = st.number_input(
         "Applicant Income",
         min_value=0.0
@@ -167,7 +163,6 @@ with right:
         "Property Area",
         ["Urban","Semiurban","Rural"]
     )
-    st.markdown("</div>", unsafe_allow_html=True)
 
 
 st.divider()
@@ -214,62 +209,79 @@ if predict:
     }
 
     with st.spinner("Predicting..."):
-        response = requests.post(
-            "http://127.0.0.1:8000/predict",
-            json=payload
-        )
 
-    if response.status_code == 200:
+        try:
+            response = requests.post(
+                "https://loan-eligibility-api-bj5j.onrender.com/predict",
+                json=payload
+            )
 
-        result = response.json()
+            if response.status_code == 200:
 
-        st.subheader("📊 Prediction Result")
+                result = response.json()
 
-        if result["loan_approved"]:
-    st.markdown(
-        """
-        <div class="approved">
-        🎉 LOAN APPROVED
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-else:
-    st.markdown(
-        """
-        <div class="rejected">
-        ❌ LOAN REJECTED
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+                st.subheader("📊 Prediction Result")
 
-    st.progress(result["approval_probability"] / 100)
+                if result["loan_approved"]:
+                    st.markdown(
+                        """
+                        <div class="approved">
+                        🎉 LOAN APPROVED
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
+                else:
+                    st.markdown(
+                        """
+                        <div class="rejected">
+                        ❌ LOAN REJECTED
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
 
-    st.metric(
-            "Approval Probability",
-            f"{result['approval_probability']}%"
-        )
+                # Confidence message
+                prob = result["approval_probability"]
 
-    st.divider()
+                if prob >= 85:
+                    st.success("🟢 Very High Chance of Approval")
+                elif prob >= 70:
+                    st.info("🟡 Good Chance of Approval")
+                elif prob >= 50:
+                    st.warning("🟠 Borderline Approval")
+                else:
+                    st.error("🔴 Low Chance of Approval")
 
-    st.subheader("📋 Applicant Summary")
+                st.progress(prob / 100)
 
-    col1, col2 = st.columns(2)
+                st.metric(
+                    "Approval Probability",
+                    f"{prob}%"
+                )
 
-    with col1:
-            st.write(f"**Total Income:** ₹ {total_income:,.0f}")
-            st.write(f"**Loan Amount:** ₹ {loan_amount:,.0f}")
-            st.write(f"**Loan Term:** {loan_term} months")
+                st.divider()
 
-    with col2:
-            st.write(f"**Credit History:** {credit_history}")
-            st.write(f"**Property Area:** {property_area}")
-            st.write(f"**Dependents:** {dependents}")
+                st.subheader("📋 Applicant Summary")
 
-else:
-    st.error("❌ Unable to connect to the FastAPI server.")
+                col1, col2 = st.columns(2)
 
+                with col1:
+                    st.write(f"**Total Income:** ₹ {total_income:,.0f}")
+                    st.write(f"**Loan Amount:** ₹ {loan_amount:,.0f}")
+                    st.write(f"**Loan Term:** {loan_term} months")
+
+                with col2:
+                    st.write(f"**Credit History:** {credit_history}")
+                    st.write(f"**Property Area:** {property_area}")
+                    st.write(f"**Dependents:** {dependents}")
+
+            else:
+                st.error("❌ Unable to connect to the FastAPI server.")
+               
+
+        except Exception as e:
+            st.error(f"Error: {e}")
 st.markdown(
     """
     <hr>
@@ -280,3 +292,4 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
