@@ -9,7 +9,7 @@ The project demonstrates the complete Machine Learning lifecycle including data 
 
 
 🚀 **Web App:**  
-https://loan-eligibility-predictor.streamlit.app
+https://drishtiiii-loan-eligibility-predictor-streamlit-app-rbbm4g.streamlit.app/
 
 
 📖 **API Documentation:**  
