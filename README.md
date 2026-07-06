@@ -167,7 +167,8 @@ Random Forest
 FastAPI
       ↓
 Streamlit
----
+
+```
 
 # 📈 Engineered Features
 
@@ -184,6 +185,7 @@ These engineered features improve the predictive performance of the model.
 
 ---
 
+```
 ## 🧪 API
 
 POST `/predict`
