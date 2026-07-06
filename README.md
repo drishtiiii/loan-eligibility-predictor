@@ -203,8 +203,9 @@ Interactive API documentation is available through Swagger:
 https://loan-eligibility-api-bj5j.onrender.com/docs
 
 
-```
+---
 # 🔮 Future Improvements
+```
 
 - Explainable AI using SHAP
 - Loan recommendation engine
@@ -216,7 +217,7 @@ https://loan-eligibility-api-bj5j.onrender.com/docs
 ```
 
 # 👩‍💻 Author
-
+```
 **Drishti Saha**
 
 GitHub:
@@ -224,7 +225,7 @@ https://github.com/drishtiiii
 
 LinkedIn:
 https://www.linkedin.com/in/drishti-saha/
-
+```
 
 ## 🎯 Project Highlights
 
