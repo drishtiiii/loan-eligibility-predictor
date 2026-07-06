@@ -169,7 +169,7 @@ FastAPI
 Streamlit
 
 ```
-
+---
 # 📈 Engineered Features
 
 The application automatically generates:
@@ -205,18 +205,18 @@ https://loan-eligibility-api-bj5j.onrender.com/docs
 
 ---
 # 🔮 Future Improvements
-```
 
+```
 - Explainable AI using SHAP
 - Loan recommendation engine
 - User authentication
 - Database integration
 - CI/CD using GitHub Actions
 - AWS deployment with monitoring
-
 ```
-
+---
 # 👩‍💻 Author
+
 ```
 **Drishti Saha**
 
@@ -225,9 +225,10 @@ https://github.com/drishtiiii
 
 LinkedIn:
 https://www.linkedin.com/in/drishti-saha/
-```
 
-## 🎯 Project Highlights
+```
+---
+# 🎯 Project Highlights
 
 - End-to-end Machine Learning workflow
 - RESTful API using FastAPI
