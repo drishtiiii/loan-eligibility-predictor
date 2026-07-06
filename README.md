@@ -185,9 +185,9 @@ These engineered features improve the predictive performance of the model.
 
 ---
 
-```
 # 🧪 API
 
+```
 POST `/predict`
 
 Returns:
