@@ -7,16 +7,10 @@ The project demonstrates the complete Machine Learning lifecycle including data 
 ---
 ## 🌐 Live Demo
 
+- 🚀 **Web App:** https://drishtiiii-loan-eligibility-predictor-streamlit-app-rbbm4g.streamlit.app/
+- 📖 **Swagger API:** https://loan-eligibility-api-bj5j.onrender.com/docs
+- 💻 **GitHub Repository:** https://github.com/drishtiiii/loan-eligibility-predictor
 
-🚀 **Web App:**  
-https://drishtiiii-loan-eligibility-predictor-streamlit-app-rbbm4g.streamlit.app/
-
-
-📖 **API Documentation:**  
-https://loan-eligibility-api-bj5j.onrender.com/docs
-
-💻 **Source Code:**  
-https://github.com/drishtiiii/loan-eligibility-predictor
 
 # 📌 Features
 
@@ -31,28 +25,14 @@ https://github.com/drishtiiii/loan-eligibility-predictor
 
 ---
 
-# 🚀 Tech Stack
+## 🚀 Tech Stack
 
-## Machine Learning
-
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-
-## Backend
-
-- FastAPI
-- Uvicorn
-- Pydantic
-
-## Frontend
-
-- Streamlit
-
-## Model Serialization
-
-- Joblib
+- **Languages:** Python
+- **Machine Learning:** Scikit-learn, Pandas, NumPy
+- **Backend:** FastAPI, Uvicorn, Pydantic
+- **Frontend:** Streamlit
+- **Deployment:** Render, Streamlit Community Cloud
+- **Containerization:** Docker, Docker Compose
 
 ---
 
@@ -94,38 +74,13 @@ loan-eligibility-predictor/
 
 # ⚙️ Installation
 
-Clone the repository
-
 ```bash
 git clone https://github.com/drishtiiii/loan-eligibility-predictor.git
-```
 
-Move into the project
-
-```bash
 cd loan-eligibility-predictor
-```
 
-Create a virtual environment
-
-```bash
-python -m venv .venv
-```
-
-Activate it
-
-Windows
-
-```bash
-.venv\Scripts\activate
-```
-
-Install dependencies
-
-```bash
 pip install -r requirements.txt
 ```
-
 ---
 
 # ▶️ Run FastAPI
@@ -197,16 +152,19 @@ docker compose up
 
 # 📊 Machine Learning Pipeline
 
-1. Data Cleaning
-2. Missing Value Handling
-3. Feature Engineering
-4. Feature Scaling
-5. Model Training
-6. Model Evaluation
-7. Model Serialization
-8. API Development
-9. Streamlit Integration
-
+Raw Data
+      ↓
+Preprocessing
+      ↓
+Feature Engineering
+      ↓
+Scaling
+      ↓
+Random Forest
+      ↓
+FastAPI
+      ↓
+Streamlit
 ---
 
 # 📈 Engineered Features
@@ -226,44 +184,22 @@ These engineered features improve the predictive performance of the model.
 
 # 🧪 API Endpoint
 
-### POST
+## 🧪 API
 
-```
-/predict
-```
+POST `/predict`
 
-Example Request
+Returns:
 
 ```json
 {
-  "Gender_Male": 1,
-  "Married_Yes": 1,
-  "Dependents": 1,
-  "Education_Not_Graduate": 0,
-  "Self_Employed_Yes": 0,
-  "ApplicantIncome": 5000,
-  "CoapplicantIncome": 2000,
-  "LoanAmount": 120,
-  "Loan_Amount_Term": 360,
-  "Credit_History": 1,
-  "Property_Area_Semiurban": 1,
-  "Property_Area_Urban": 0,
-  "TotalIncome": 7000,
-  "LogIncome": 8.85,
-  "LogLoanAmount": 4.79,
-  "EMI": 0.33,
-  "LoanToIncomeRatio": 0.017,
-  "IncomePerDependent": 3500
+    "loan_approved": true,
+    "approval_probability": 71.5
 }
 ```
 
-Example Response
+Interactive API documentation is available through Swagger:
+https://loan-eligibility-api-bj5j.onrender.com/docs
 
-```json
-{
-  "loan_approved": true,
-  "approval_probability": 71.5
-}
 ```
 
 ---
@@ -271,13 +207,11 @@ Example Response
 # 🔮 Future Improvements
 
 - Explainable AI using SHAP
-- Docker deployment
-- Cloud deployment
-- CI/CD using GitHub Actions
-- User Authentication
-- Database integration
 - Loan recommendation engine
-
+- User authentication
+- Database integration
+- CI/CD using GitHub Actions
+- AWS deployment with monitoring
 ---
 
 # 👩‍💻 Author
@@ -287,3 +221,15 @@ Example Response
 GitHub:
 https://github.com/drishtiiii
 
+LinkedIn:
+https://www.linkedin.com/in/drishti-saha/
+
+## 🎯 Project Highlights
+
+- End-to-end Machine Learning workflow
+- RESTful API using FastAPI
+- Interactive Streamlit web application
+- Dockerized for consistent deployment
+- Backend deployed on Render
+- Frontend deployed on Streamlit Community Cloud
+- Tested with Swagger/OpenAPI
