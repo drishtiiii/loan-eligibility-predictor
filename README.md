@@ -153,6 +153,25 @@ http://127.0.0.1:8000/docs
 ```bash
 streamlit run streamlit_app.py
 ```
+## Running with Docker
+
+Build the image
+
+```bash
+docker build -t loan-eligibility-api .
+```
+
+Run the container
+
+```bash
+docker run -p 8000:8000 loan-eligibility-api
+```
+
+Using Docker Compose
+
+```bash
+docker compose up
+```
 
 ---
 
