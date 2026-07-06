@@ -152,6 +152,8 @@ docker compose up
 
 # 📊 Machine Learning Pipeline
 
+```
+
 Raw Data
       ↓
 Preprocessing
@@ -182,8 +184,6 @@ These engineered features improve the predictive performance of the model.
 
 ---
 
-# 🧪 API Endpoint
-
 ## 🧪 API
 
 POST `/predict`
@@ -200,10 +200,8 @@ Returns:
 Interactive API documentation is available through Swagger:
 https://loan-eligibility-api-bj5j.onrender.com/docs
 
+
 ```
-
----
-
 # 🔮 Future Improvements
 
 - Explainable AI using SHAP
@@ -212,7 +210,8 @@ https://loan-eligibility-api-bj5j.onrender.com/docs
 - Database integration
 - CI/CD using GitHub Actions
 - AWS deployment with monitoring
----
+
+```
 
 # 👩‍💻 Author
 
@@ -223,6 +222,7 @@ https://github.com/drishtiiii
 
 LinkedIn:
 https://www.linkedin.com/in/drishti-saha/
+
 
 ## 🎯 Project Highlights
 
