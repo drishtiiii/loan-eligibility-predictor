@@ -215,10 +215,12 @@ https://loan-eligibility-api-bj5j.onrender.com/docs
 - AWS deployment with monitoring
 ```
 ---
+
 # 👩‍💻 Author
 
-```
-**Drishti Saha**
+## Drishti Saha
+
+This project demonstrates the design and deployment of a complete AI research assistant, integrating LLM-powered report generation, workflow orchestration with LangGraph, web search, persistent storage, and cloud deployment.
 
 GitHub:
 https://github.com/drishtiiii
@@ -226,7 +228,6 @@ https://github.com/drishtiiii
 LinkedIn:
 https://www.linkedin.com/in/drishti-saha/
 
-```
 ---
 # 🎯 Project Highlights
 
