@@ -120,7 +120,7 @@ Prediction Result
 ### Loan Details
 
 <p align="center">
-<img src="images/loan.png" width="800">
+<img src="screenshots/loan.png" width="800">
 </p>
 
 ### Credit Assessment
