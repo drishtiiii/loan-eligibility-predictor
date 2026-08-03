@@ -101,19 +101,19 @@ Prediction Result
 ### Registration
 
 <p align="center">
-<img src="images/registration.png" width="800">
+<img src="screenshots/registration.png" width="800">
 </p>
 
 ### Personal Information
 
 <p align="center">
-<img src="images/personal.png" width="800">
+<img src="screenshots/personal.png" width="800">
 </p>
 
 ### Employment & Income
 
 <p align="center">
-<img src="images/income.png" width="800">
+<img src="screenshots/income.png" width="800">
 </p>
 
 ### Loan Details
@@ -125,19 +125,19 @@ Prediction Result
 ### Credit Assessment
 
 <p align="center">
-<img src="images/credit.png" width="800">
+<img src="screenshots/credit.png" width="800">
 </p>
 
 ### Review Application
 
 <p align="center">
-<img src="images/review.png" width="800">
+<img src="screenshots/review.png" width="800">
 </p>
 
 ### Prediction Result
 
 <p align="center">
-<img src="images/result.png" width="800">
+<img src="screenshots/result.png" width="800">
 </p>
 
 ---
