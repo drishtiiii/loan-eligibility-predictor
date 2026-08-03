@@ -98,6 +98,7 @@ Prediction Result
 
 ## 📸 Screenshots
 
+
 ### Registration
 
 <p align="center">
