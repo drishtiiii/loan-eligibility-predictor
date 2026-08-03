@@ -11,7 +11,7 @@ def initialize_state():
         # Registration
         "full_name": "",
         "age": None,
-        "gender": "",
+        "gender": "Select",
         "dob": None,
         "phone": "",
         "email": "",
@@ -24,7 +24,7 @@ def initialize_state():
         # Personal
         "marital_status": "Select",
         "education": "Select",
-        "employment_status": "Select",
+        "employment_status": "No",
         "dependents": 0,
 
         # Income
@@ -37,7 +37,7 @@ def initialize_state():
         # Loan
         "loan_amount": 0.0,
         "loan_term": 360,
-        "property_area": "",
+        "property_area": "Select",
         "loan_purpose": "Home Loan",
 
         # Credit
@@ -45,6 +45,8 @@ def initialize_state():
         "previous_loan": "No",
         "loan_type": "Home Loan",
         "loan_status": "Paid",
+        "credit_score": 750,
+        "credit_declaration": False,
 
         # Prediction
         "prediction": None,

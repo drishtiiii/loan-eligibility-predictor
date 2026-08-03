@@ -1,10 +1,11 @@
 from fastapi import FastAPI
+
 from app.schemas import LoanApplication
 from app.inference import predict
 
 app = FastAPI(
     title="Loan Eligibility API",
-    version="1.0"
+    version="1.0",
 )
 
 

@@ -1,178 +1,232 @@
-# 🏦 Loan Eligibility Prediction Platform
+# 🏦 Loan Eligibility Predictor
 
-An end-to-end Machine Learning web application that predicts whether a loan application is likely to be approved based on applicant information.
-
-The project demonstrates the complete Machine Learning lifecycle including data preprocessing, feature engineering, model training, REST API development using FastAPI, and an interactive frontend built with Streamlit.
-
----
-## 🌐 Live Demo
-
-- 🚀 **Web App:** https://drishtiiii-loan-eligibility-predictor-streamlit-app-rbbm4g.streamlit.app/
-- 📖 **Swagger API:** https://loan-eligibility-api-bj5j.onrender.com/docs
-- 💻 **GitHub Repository:** https://github.com/drishtiiii/loan-eligibility-predictor
-
-
-# 📌 Features
-
-- Predicts loan approval using a trained Machine Learning model
-- FastAPI backend with REST API
-- Interactive Streamlit frontend
-- Feature engineering for better prediction accuracy
-- Approval probability score
-- Applicant summary dashboard
-- Swagger API documentation
-- Clean and responsive user interface
+A Machine Learning-powered Loan Eligibility Prediction System built using **FastAPI**, **Streamlit**, and **Scikit-Learn**. The application allows users to complete a multi-step loan application form, reviews the entered information, and predicts whether the loan is likely to be approved.
 
 ---
 
-## 🚀 Tech Stack
+## 📌 Features
 
-- **Languages:** Python
-- **Machine Learning:** Scikit-learn, Pandas, NumPy
-- **Backend:** FastAPI, Uvicorn, Pydantic
-- **Frontend:** Streamlit
-- **Deployment:** Render, Streamlit Community Cloud
-- **Containerization:** Docker, Docker Compose
+- 📝 Multi-step loan application form
+- ✅ Input validation at every step
+- 💾 Persistent session state across pages
+- 📋 Review application before submission
+- 🤖 Machine Learning prediction using Random Forest
+- ⚡ FastAPI backend for inference
+- 🎨 Clean and responsive Streamlit interface
+- 📊 Probability score for loan approval
 
 ---
 
-# 📂 Project Structure
+## 🛠 Tech Stack
+
+### Frontend
+- Streamlit
+- Python
+
+### Backend
+- FastAPI
+- Uvicorn
+
+### Machine Learning
+- Scikit-Learn
+- Random Forest Classifier
+- Pandas
+- NumPy
+- Joblib
+
+---
+
+## 📂 Project Structure
 
 ```
 loan-eligibility-predictor/
 │
 ├── app/
-│   ├── config.py
-│   ├── inference.py
 │   ├── main.py
+│   ├── inference.py
 │   ├── preprocess.py
-│   └── schemas.py
+│   ├── schemas.py
+│   ├── config.py
+│   └── model.pkl
 │
-├── artifacts/
-│   ├── model.pkl
-│   ├── scaler.pkl
-│   └── feature_columns.pkl
-│
-├── data/
-│   ├── train.csv
-│   └── processed_loan_data.csv
+├── frontend/
+│   ├── app.py
+│   ├── pages/
+│   ├── components/
+│   ├── utils/
+│   └── assets/
 │
 ├── notebooks/
-│   └── EDA.ipynb
-│
-├── screenshots/
-│
-├── tests/
-│
+├── dataset/
 ├── requirements.txt
-├── streamlit_app.py
-├── Dockerfile
 └── README.md
 ```
 
 ---
 
-# ⚙️ Installation
+## 🚀 Application Workflow
 
-```bash
-git clone https://github.com/drishtiiii/loan-eligibility-predictor.git
-
-cd loan-eligibility-predictor
-
-pip install -r requirements.txt
 ```
+User Registration
+        │
+        ▼
+Personal Information
+        │
+        ▼
+Employment & Income
+        │
+        ▼
+Loan Details
+        │
+        ▼
+Credit Assessment
+        │
+        ▼
+Review Application
+        │
+        ▼
+FastAPI Backend
+        │
+        ▼
+Random Forest Model
+        │
+        ▼
+Prediction Result
+```
+
 ---
 
-# ▶️ Run FastAPI
+## 📸 Screenshots
+
+### Registration
+
+<p align="center">
+<img src="images/registration.png" width="800">
+</p>
+
+### Personal Information
+
+<p align="center">
+<img src="images/personal.png" width="800">
+</p>
+
+### Employment & Income
+
+<p align="center">
+<img src="images/income.png" width="800">
+</p>
+
+### Loan Details
+
+<p align="center">
+<img src="images/loan.png" width="800">
+</p>
+
+### Credit Assessment
+
+<p align="center">
+<img src="images/credit.png" width="800">
+</p>
+
+### Review Application
+
+<p align="center">
+<img src="images/review.png" width="800">
+</p>
+
+### Prediction Result
+
+<p align="center">
+<img src="images/result.png" width="800">
+</p>
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/yourusername/loan-eligibility-predictor.git
+
+cd loan-eligibility-predictor
+```
+
+### Create Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+### Activate Environment
+
+Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+Linux / Mac
+
+```bash
+source .venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Run Backend
 
 ```bash
 python -m uvicorn app.main:app --reload
 ```
 
-FastAPI will run at
+Backend runs at
 
 ```
 http://127.0.0.1:8000
 ```
 
-Swagger Documentation
-
-```
-http://127.0.0.1:8000/docs
-```
-
 ---
 
-# ▶️ Run Streamlit
+## ▶️ Run Frontend
 
 ```bash
-streamlit run streamlit_app.py
-```
-## Running with Docker
-
-Build the image
-
-```bash
-docker build -t loan-eligibility-api .
+streamlit run frontend/app.py
 ```
 
-Run the container
+Frontend runs at
 
-```bash
-docker run -p 8000:8000 loan-eligibility-api
 ```
-
-Using Docker Compose
-
-```bash
-docker compose up
+http://localhost:8501
 ```
 
 ---
 
-# 📸 Screenshots
+## 🧠 Machine Learning Model
 
-## Streamlit Dashboard
+The prediction model is a **Random Forest Classifier** trained on a public Loan Eligibility dataset.
 
-![Dashboard](screenshots/dashboard.png)
+### Features Used
 
----
+- Gender
+- Marital Status
+- Dependents
+- Education
+- Self Employment
+- Applicant Income
+- Co-applicant Income
+- Loan Amount
+- Loan Term
+- Credit History
+- Property Area
 
-## Prediction Result
-
-![Prediction](screenshots/prediction.png)
-
----
-
-## Swagger API
-
-![Swagger](screenshots/swagger.png)
-
----
-
-# 📊 Machine Learning Pipeline
-
-```
-
-Raw Data
-      ↓
-Preprocessing
-      ↓
-Feature Engineering
-      ↓
-Scaling
-      ↓
-Random Forest
-      ↓
-FastAPI
-      ↓
-Streamlit
-
-```
----
-# 📈 Engineered Features
-
-The application automatically generates:
+### Engineered Features
 
 - Total Income
 - Log Income
@@ -181,59 +235,39 @@ The application automatically generates:
 - Loan-to-Income Ratio
 - Income per Dependent
 
-These engineered features improve the predictive performance of the model.
+---
+
+## 📈 Prediction Output
+
+The model returns:
+
+- Loan Approval Status
+- Approval Probability
 
 ---
 
-# 🧪 API
+## 💡 Future Improvements
 
-```
-POST `/predict`
-
-Returns:
-
-```json
-{
-    "loan_approved": true,
-    "approval_probability": 71.5
-}
-```
-
-Interactive API documentation is available through Swagger:
-https://loan-eligibility-api-bj5j.onrender.com/docs
-
+- User Authentication
+- Application History
+- Database Integration
+- Explainable AI (SHAP/LIME)
+- Model Comparison
+- Docker Support
+- Cloud Deployment
 
 ---
-# 🔮 Future Improvements
 
-```
-- Explainable AI using SHAP
-- Loan recommendation engine
-- User authentication
-- Database integration
-- CI/CD using GitHub Actions
-- AWS deployment with monitoring
-```
----
+## 👩‍💻 Author
 
-# 👩‍💻 Author
+**Drishti Saha**
 
-## Drishti Saha
+GitHub: https://github.com/drishtiiii
 
-
-GitHub:
-https://github.com/drishtiiii
-
-LinkedIn:
-https://www.linkedin.com/in/drishti-saha/
+LinkedIn: https://www.linkedin.com/in/drishti-saha/
 
 ---
-# 🎯 Project Highlights
 
-- End-to-end Machine Learning workflow
-- RESTful API using FastAPI
-- Interactive Streamlit web application
-- Dockerized for consistent deployment
-- Backend deployed on Render
-- Frontend deployed on Streamlit Community Cloud
-- Tested with Swagger/OpenAPI
+## ⭐ If you like this project
+
+Give it a ⭐ on GitHub!

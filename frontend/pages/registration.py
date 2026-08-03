@@ -1,6 +1,8 @@
 import streamlit as st
 from datetime import date
 
+from utils.validator import validate_registration
+
 
 def show_registration():
 
@@ -22,13 +24,15 @@ def show_registration():
 
     with col1:
 
-        st.text_input(
+        name = st.text_input(
             "Full Name *",
-            key="full_name",
+            value=st.session_state.get("full_name", ""),
             placeholder="Enter your full name",
         )
-        st.success(f"DEBUG: {st.session_state.full_name}")
-        
+        st.session_state["full_name"] = name
+
+        st.success(f"DEBUG: {st.session_state['full_name']}")
+
         st.selectbox(
             "Gender *",
             [
@@ -45,20 +49,20 @@ def show_registration():
 
         dob = st.date_input(
             "Date of Birth *",
-            value=st.session_state.get("dob") or date(2000, 1, 1),
             min_value=date(1950, 1, 1),
             max_value=today,
             key="dob",
         )
 
-        if dob is not None:
+        if dob:
+
             age = (
                 today.year
                 - dob.year
                 - ((today.month, today.day) < (dob.month, dob.day))
             )
 
-            st.session_state.age = age
+            st.session_state["age"] = age
 
             st.metric(
                 "Calculated Age",
@@ -77,19 +81,23 @@ def show_registration():
 
     with col1:
 
-        st.text_input(
+        phone = st.text_input(
             "Phone Number *",
-            key="phone",
+            value=st.session_state.get("phone", ""),
             placeholder="10-digit mobile number",
         )
 
+        st.session_state["phone"] = phone
+
     with col2:
 
-        st.text_input(
+        email = st.text_input(
             "Email Address *",
-            key="email",
+            value=st.session_state.get("email", ""),
             placeholder="example@email.com",
         )
+
+        st.session_state["email"] = email
 
     st.divider()
 
@@ -99,37 +107,69 @@ def show_registration():
 
     st.markdown("### 🏠 Residential Address")
 
-    st.text_area(
+    address = st.text_area(
         "Street Address *",
-        key="address",
-        height=100,
+        value=st.session_state.get("address", ""),
         placeholder="House No., Street, Locality",
+        height=100,
     )
+
+    st.session_state["address"] = address
 
     col1, col2 = st.columns(2)
 
     with col1:
 
-        st.text_input(
+        city = st.text_input(
             "City *",
-            key="city",
+            value=st.session_state.get("city", ""),
         )
 
-        st.text_input(
+        st.session_state["city"] = city
+
+        state = st.text_input(
             "State *",
-            key="state",
+            value=st.session_state.get("state", ""),
         )
+
+        st.session_state["state"] = state
 
     with col2:
 
-        st.text_input(
+        pin = st.text_input(
             "PIN Code *",
-            key="pin_code",
+            value=st.session_state.get("pin_code", ""),
             max_chars=6,
         )
+
+        st.session_state["pin_code"] = pin
 
         st.selectbox(
             "Country",
             ["India"],
             key="country",
         )
+
+    st.divider()
+
+    # ==========================================================
+    # Next Button
+    # ==========================================================
+
+    if st.button(
+        "Next ➜",
+        key="registration_next",
+        use_container_width=True,
+    ):
+
+        errors = validate_registration()
+
+        if errors:
+
+            for error in errors:
+                st.error(error)
+
+        else:
+
+            st.session_state.step = 2
+            st.rerun()

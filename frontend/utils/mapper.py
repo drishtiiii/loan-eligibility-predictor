@@ -4,19 +4,23 @@ import streamlit as st
 
 def build_payload():
 
-    applicant_income = st.session_state.applicant_income
-    coapplicant_income = st.session_state.coapplicant_income
+    applicant_income = st.session_state.get("applicant_income", 0.0)
+    coapplicant_income = st.session_state.get("coapplicant_income", 0.0)
 
     total_income = applicant_income + coapplicant_income
 
-    loan_amount = st.session_state.loan_amount
+    loan_amount = st.session_state.get("loan_amount", 0.0)
 
-    dependents = st.session_state.dependents
+    dependents = st.session_state.get("dependents", 0)
+
     income_per_dependent = total_income / (dependents + 1)
+
+    loan_term = st.session_state.get("loan_term", 360)
+
     emi = 0
 
-    if st.session_state.loan_term > 0:
-        emi = loan_amount / st.session_state.loan_term
+    if loan_term > 0:
+        emi = loan_amount / loan_term
 
     loan_ratio = 0
 
@@ -25,19 +29,20 @@ def build_payload():
 
     payload = {
 
-        "Gender_Male": 1 if st.session_state.gender == "Male" else 0,
+        "Gender_Male":
+            1 if st.session_state.get("gender", "Select") == "Male" else 0,
 
         "Married_Yes":
-            1 if st.session_state.marital_status == "Married" else 0,
+            1 if st.session_state.get("marital_status", "Select") == "Married" else 0,
 
         "Dependents":
             dependents,
 
         "Education_Not_Graduate":
-            1 if st.session_state.education == "Not Graduate" else 0,
+            1 if st.session_state.get("education", "Select") == "Not Graduate" else 0,
 
         "Self_Employed_Yes":
-            1 if st.session_state.employment_status == "Yes" else 0,
+            1 if st.session_state.get("employment_status", "No") == "Yes" else 0,
 
         "ApplicantIncome":
             applicant_income,
@@ -49,16 +54,16 @@ def build_payload():
             loan_amount,
 
         "Loan_Amount_Term":
-            st.session_state.loan_term,
+            loan_term,
 
         "Credit_History":
-            1 if st.session_state.credit_history == "Yes" else 0,
+            1 if st.session_state.get("credit_history", "Yes") == "Yes" else 0,
 
         "Property_Area_Semiurban":
-            1 if st.session_state.property_area == "Semiurban" else 0,
+            1 if st.session_state.get("property_area", "Select") == "Semiurban" else 0,
 
         "Property_Area_Urban":
-            1 if st.session_state.property_area == "Urban" else 0,
+            1 if st.session_state.get("property_area", "Select") == "Urban" else 0,
 
         "TotalIncome":
             total_income,

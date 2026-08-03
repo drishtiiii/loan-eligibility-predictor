@@ -1,8 +1,8 @@
 import streamlit as st
+from utils.validator import validate_credit
 
 
 def show_credit():
-    st.info(f"DEBUG Step 3: {st.session_state.full_name}")
 
     st.subheader("💳 Step 5 of 7")
 
@@ -16,65 +16,124 @@ def show_credit():
 
     st.markdown("### Previous Loan Details")
 
-    st.radio(
+    previous_options = [
+        "Yes",
+        "No",
+    ]
+
+    previous_loan = st.radio(
         "Have you previously taken a loan? *",
-        ["Yes", "No"],
-        key="previous_loan",
+        previous_options,
+        index=previous_options.index(
+            st.session_state.get("previous_loan", "No")
+        ),
         horizontal=True,
     )
 
-    if st.session_state.previous_loan == "Yes":
+    st.session_state["previous_loan"] = previous_loan
+
+    if previous_loan == "Yes":
 
         col1, col2 = st.columns(2)
 
+        loan_type_options = [
+            "Home Loan",
+            "Vehicle Loan",
+            "Education Loan",
+            "Personal Loan",
+            "Business Loan",
+            "Other",
+        ]
+
+        loan_status_options = [
+            "Fully Repaid",
+            "Ongoing",
+            "Defaulted",
+        ]
+
         with col1:
 
-            st.selectbox(
+            loan_type = st.selectbox(
                 "Loan Type",
-                [
-                    "Home Loan",
-                    "Vehicle Loan",
-                    "Education Loan",
-                    "Personal Loan",
-                    "Business Loan",
-                    "Other",
-                ],
-                key="loan_type",
+                loan_type_options,
+                index=loan_type_options.index(
+                    st.session_state.get(
+                        "loan_type",
+                        "Home Loan",
+                    )
+                ),
             )
+
+            st.session_state["loan_type"] = loan_type
 
         with col2:
 
-            st.selectbox(
+            loan_status = st.selectbox(
                 "Loan Status",
-                [
-                    "Fully Repaid",
-                    "Ongoing",
-                    "Defaulted",
-                ],
-                key="loan_status",
+                loan_status_options,
+                index=loan_status_options.index(
+                    st.session_state.get(
+                        "loan_status",
+                        "Fully Repaid",
+                    )
+                ),
             )
+
+            st.session_state["loan_status"] = loan_status
 
     st.divider()
 
     st.markdown("### Credit History")
 
-    st.radio(
+    credit_options = [
+        "Yes",
+        "No",
+    ]
+
+    credit_history = st.radio(
         "Do you have a good credit history? *",
-        ["Yes", "No"],
-        key="credit_history",
+        credit_options,
+        index=credit_options.index(
+            st.session_state.get("credit_history", "Yes")
+        ),
         horizontal=True,
     )
 
-    st.number_input(
+    st.session_state["credit_history"] = credit_history
+
+    credit_score = st.number_input(
         "Credit Score (Optional)",
         min_value=300,
         max_value=900,
-        value=750,
-        key="credit_score",
+        value=int(st.session_state.get("credit_score", 750)),
         help="This field is not used by the current prediction model.",
     )
 
-    st.checkbox(
+    st.session_state["credit_score"] = credit_score
+
+    declaration = st.checkbox(
         "I confirm that the information provided above is true.",
-        key="credit_declaration",
+        value=st.session_state.get("credit_declaration", False),
     )
+
+    st.session_state["credit_declaration"] = declaration
+
+    st.divider()
+
+    if st.button(
+        "Next ➜",
+        key="credit_next",
+        use_container_width=True,
+    ):
+
+        errors = validate_credit()
+
+        if errors:
+
+            for error in errors:
+                st.error(error)
+
+        else:
+
+            st.session_state.step = 6
+            st.rerun()

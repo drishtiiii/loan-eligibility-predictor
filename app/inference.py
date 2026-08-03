@@ -6,8 +6,14 @@ from app.preprocess import preprocess
 # Load trained model
 model = joblib.load(MODEL_PATH)
 
+# 👇 ADD THIS
+print("========== MODEL FEATURES ==========")
+print(list(model.feature_names_in_))
+print("====================================")
+
 
 def predict(data: dict):
+
     processed_data = preprocess(data)
 
     prediction = model.predict(processed_data)[0]

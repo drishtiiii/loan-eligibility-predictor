@@ -1,8 +1,8 @@
 import streamlit as st
+from utils.validator import validate_income
+
 
 def show_income():
-    st.info(f"DEBUG Step 3: {st.session_state.full_name}")
-    st.json(dict(st.session_state))
 
     st.subheader("💼 Step 3 of 7")
 
@@ -20,35 +20,57 @@ def show_income():
 
     with col1:
 
-        st.text_input(
+        occupation = st.text_input(
             "Occupation *",
-            key="occupation",
+            value=st.session_state.get("occupation", ""),
             placeholder="Software Engineer",
         )
+        st.session_state["occupation"] = occupation
 
-        st.number_input(
+        experience = st.number_input(
             "Years of Experience",
             min_value=0,
             max_value=50,
-            key="experience",
+            value=st.session_state.get("experience", 0),
         )
+        st.session_state["experience"] = experience
 
     with col2:
 
-        st.number_input(
+        applicant_income = st.number_input(
             "Applicant Monthly Income (₹) *",
             min_value=0.0,
-            key="applicant_income",
+            value=float(st.session_state.get("applicant_income", 0.0)),
         )
+        st.session_state["applicant_income"] = applicant_income
 
-        st.number_input(
+        coapplicant_income = st.number_input(
             "Co-applicant Monthly Income (₹)",
             min_value=0.0,
-            key="coapplicant_income",
+            value=float(st.session_state.get("coapplicant_income", 0.0)),
         )
+        st.session_state["coapplicant_income"] = coapplicant_income
 
-        st.number_input(
+        existing_emi = st.number_input(
             "Existing Monthly EMI (₹)",
             min_value=0.0,
-            key="existing_emi",
+            value=float(st.session_state.get("existing_emi", 0.0)),
         )
+        st.session_state["existing_emi"] = existing_emi
+
+    st.divider()
+
+    if st.button(
+        "Next ➜",
+        key="income_next",
+        use_container_width=True,
+    ):
+
+        errors = validate_income()
+
+        if errors:
+            for error in errors:
+                st.error(error)
+        else:
+            st.session_state.step = 4
+            st.rerun()
