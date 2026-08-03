@@ -1,7 +1,7 @@
 import requests
 import streamlit as st
 
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = "https://loan-eligibility-predictor-ksgq.onrender.com/predict"
 
 
 def predict(payload):
