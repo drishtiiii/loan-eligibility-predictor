@@ -17,6 +17,22 @@ A Machine Learning-powered Loan Eligibility Prediction System built using **Fast
 
 ---
 
+## 🌐 Live Demo
+
+### 🚀 Frontend
+
+https://loan-eligibility-predictor-scqw5frsse7kzfbvpcyq5e.streamlit.app/
+
+### ⚡ Backend API
+
+https://loan-eligibility-predictor-ksgq.onrender.com/
+
+### 📖 API Documentation
+
+https://loan-eligibility-predictor-ksgq.onrender.com/docs
+
+---
+
 ## 🛠 Tech Stack
 
 ### Frontend

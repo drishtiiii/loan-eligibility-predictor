@@ -3,7 +3,6 @@ import streamlit as st
 
 API_URL = "https://loan-eligibility-predictor-ksgq.onrender.com/predict"
 
-
 def predict(payload):
 
     response = requests.post(
