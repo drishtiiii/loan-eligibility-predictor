@@ -1,7 +1,7 @@
 import streamlit as st
 
-
 def loan():
+    st.info(f"DEBUG Step 3: {st.session_state.full_name}")
 
     st.subheader("🏦 Step 4 of 7")
 

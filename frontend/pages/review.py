@@ -3,9 +3,8 @@ from utils.mapper import build_payload
 from utils.api import predict
 
 def show_review():
+    st.info(f"DEBUG Step 3: {st.session_state.full_name}")
 
-    st.write(st.session_state)
-    
     st.subheader("📋 Step 6 of 7")
 
     st.title("Review Your Application")

@@ -89,4 +89,5 @@ def validate_credit():
 
     if not st.session_state.credit_declaration:
         errors.append("Please accept the declaration before continuing.")
-        return []
+
+    return errors

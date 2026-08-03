@@ -1,7 +1,8 @@
 import streamlit as st
 
-
 def show_income():
+    st.info(f"DEBUG Step 3: {st.session_state.full_name}")
+    st.json(dict(st.session_state))
 
     st.subheader("💼 Step 3 of 7")
 

@@ -2,7 +2,8 @@ import streamlit as st
 
 
 def show_personal():
-
+    st.info(f"DEBUG Step 2: {st.session_state.full_name}")
+    
     st.subheader("👨‍👩‍👧 Step 2 of 7")
 
     st.title("Personal Information")

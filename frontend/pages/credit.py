@@ -2,6 +2,7 @@ import streamlit as st
 
 
 def show_credit():
+    st.info(f"DEBUG Step 3: {st.session_state.full_name}")
 
     st.subheader("💳 Step 5 of 7")
 
