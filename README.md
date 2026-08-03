@@ -105,11 +105,15 @@ Prediction Result
 <img src="screenshots/registration.png" width="800">
 </p>
 
+---
+
 ### Personal Information
 
 <p align="center">
 <img src="screenshots/personal.png" width="800">
 </p>
+
+---
 
 ### Employment & Income
 
@@ -117,11 +121,15 @@ Prediction Result
 <img src="screenshots/income.png" width="800">
 </p>
 
+---
+
 ### Loan Details
 
 <p align="center">
 <img src="screenshots/loan.png" width="800">
 </p>
+
+---
 
 ### Credit Assessment
 
@@ -129,11 +137,15 @@ Prediction Result
 <img src="screenshots/credit.png" width="800">
 </p>
 
+---
+
 ### Review Application
 
 <p align="center">
 <img src="screenshots/review.png" width="800">
 </p>
+
+---
 
 ### Prediction Result
 
