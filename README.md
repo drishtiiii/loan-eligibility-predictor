@@ -1,4 +1,4 @@
-# 🏦 Loan Eligibility Predictor
+# AI Enabled Loan Eligibility Predictor
 
 A Machine Learning-powered Loan Eligibility Prediction System built using **FastAPI**, **Streamlit**, and **Scikit-Learn**. The application allows users to complete a multi-step loan application form, reviews the entered information, and predicts whether the loan is likely to be approved.
 
