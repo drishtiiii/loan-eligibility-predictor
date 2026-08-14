@@ -1,4 +1,4 @@
-# 🤖 AI-Powered Loan Eligibility Predictor
+# AI-Powered Loan Eligibility Predictor
 
 An **AI/ML-powered loan eligibility prediction system** that analyzes applicant, financial, loan, and credit information to predict the likelihood of loan approval.
 
