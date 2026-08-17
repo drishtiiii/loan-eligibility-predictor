@@ -40,7 +40,6 @@ def show_registration():
             ],
             key="gender",
         )
-        st.session_state["gender"] = gender
 
     with col2:
 
