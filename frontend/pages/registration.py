@@ -31,7 +31,7 @@ def show_registration():
         )
         st.session_state["full_name"] = name
 
-        st.selectbox(
+        gender = st.selectbox(
             "Gender *",
             [
                 "Select",
@@ -40,6 +40,7 @@ def show_registration():
             ],
             key="gender",
         )
+        st.session_state["gender"] = gender
 
     with col2:
 
