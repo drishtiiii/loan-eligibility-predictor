@@ -8,7 +8,7 @@ def predict(payload):
     response = requests.post(
         API_URL,
         json=payload,
-        timeout=30,
+        timeout=120,
     )
 
     st.write("Payload Sent:")
