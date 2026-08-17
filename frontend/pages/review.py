@@ -1,4 +1,5 @@
 import streamlit as st
+
 from utils.mapper import build_payload
 from utils.api import predict
 
@@ -15,9 +16,9 @@ def show_review():
 
     st.divider()
 
-    # -----------------------------------------------------
+    # =====================================================
     # Personal Information
-    # -----------------------------------------------------
+    # =====================================================
 
     with st.expander("👤 Personal Information", expanded=True):
 
@@ -25,83 +26,166 @@ def show_review():
 
         with col1:
 
-            st.write("**Full Name:**", st.session_state.get("full_name", ""))
+            st.write(
+                "**Full Name:**",
+                st.session_state.get("full_name", "Not provided")
+            )
 
-            st.write("**Gender:**", st.session_state.get("gender", "Not Selected"))
+            gender = st.session_state.get("gender", "Select")
 
-            st.write("**Phone:**", st.session_state.get("phone", ""))
+            if gender == "Select" or not gender:
+                gender = "Not Selected"
 
-            st.write("**Email:**", st.session_state.get("email", ""))
+            st.write("**Gender:**", gender)
+
+            st.write(
+                "**Phone:**",
+                st.session_state.get("phone", "Not provided")
+            )
+
+            st.write(
+                "**Email:**",
+                st.session_state.get("email", "Not provided")
+            )
 
         with col2:
 
-            st.write("**City:**", st.session_state.get("city", ""))
+            st.write(
+                "**Date of Birth:**",
+                st.session_state.get("dob", "Not provided")
+            )
 
-            st.write("**State:**", st.session_state.get("state", ""))
+            st.write(
+                "**Age:**",
+                st.session_state.get("age", "Not provided")
+            )
 
-            st.write("**PIN Code:**", st.session_state.get("pin_code", ""))
+            st.write(
+                "**City:**",
+                st.session_state.get("city", "Not provided")
+            )
 
-    # -----------------------------------------------------
-    # Personal Details
-    # -----------------------------------------------------
+            st.write(
+                "**State:**",
+                st.session_state.get("state", "Not provided")
+            )
+
+            st.write(
+                "**PIN Code:**",
+                st.session_state.get("pin_code", "Not provided")
+            )
+
+    # =====================================================
+    # Family Details
+    # =====================================================
 
     with st.expander("👨‍👩‍👧 Family Details"):
 
-        st.write("**Marital Status:**", st.session_state.get("marital_status", ""))
+        st.write(
+            "**Marital Status:**",
+            st.session_state.get("marital_status", "Not provided")
+        )
 
-        st.write("**Dependents:**", st.session_state.get("dependents", 0))
+        st.write(
+            "**Dependents:**",
+            st.session_state.get("dependents", 0)
+        )
 
-        st.write("**Education:**", st.session_state.get("education", ""))
+        st.write(
+            "**Education:**",
+            st.session_state.get("education", "Not provided")
+        )
 
-        st.write("**Self Employed:**", st.session_state.get("employment_status", ""))
+        st.write(
+            "**Self Employed:**",
+            st.session_state.get("employment_status", "Not provided")
+        )
 
-    # -----------------------------------------------------
-    # Income
-    # -----------------------------------------------------
+    # =====================================================
+    # Employment & Income
+    # =====================================================
 
     with st.expander("💼 Employment & Income"):
 
-        st.write("**Occupation:**", st.session_state.get("occupation", ""))
+        st.write(
+            "**Occupation:**",
+            st.session_state.get("occupation", "Not provided")
+        )
 
-        st.write("**Experience:**", st.session_state.get("experience", 0), "Years")
+        st.write(
+            "**Experience:**",
+            st.session_state.get("experience", 0),
+            "Years"
+        )
 
-        st.write("**Applicant Income:** ₹", st.session_state.get("applicant_income", 0))
+        st.write(
+            "**Applicant Income:** ₹",
+            st.session_state.get("applicant_income", 0)
+        )
 
-        st.write("**Co-applicant Income:** ₹", st.session_state.get("coapplicant_income", 0))
+        st.write(
+            "**Co-applicant Income:** ₹",
+            st.session_state.get("coapplicant_income", 0)
+        )
 
-        st.write("**Existing EMI:** ₹", st.session_state.get("existing_emi", 0))
+        st.write(
+            "**Existing EMI:** ₹",
+            st.session_state.get("existing_emi", 0)
+        )
 
-    # -----------------------------------------------------
-    # Loan
-    # -----------------------------------------------------
+    # =====================================================
+    # Loan Details
+    # =====================================================
 
     with st.expander("🏦 Loan Details"):
 
-        st.write("**Loan Amount:** ₹", st.session_state.get("loan_amount", 0))
+        st.write(
+            "**Loan Amount:** ₹",
+            st.session_state.get("loan_amount", 0)
+        )
 
-        st.write("**Loan Term:**", st.session_state.get("loan_term", 360), "Months")
+        st.write(
+            "**Loan Term:**",
+            st.session_state.get("loan_term", 360),
+            "Months"
+        )
 
-        st.write("**Purpose:**", st.session_state.get("loan_purpose", ""))
+        st.write(
+            "**Purpose:**",
+            st.session_state.get("loan_purpose", "Not provided")
+        )
 
-        st.write("**Property Area:**", st.session_state.get("property_area", ""))
+        st.write(
+            "**Property Area:**",
+            st.session_state.get("property_area", "Not provided")
+        )
 
-    # -----------------------------------------------------
-    # Credit
-    # -----------------------------------------------------
+    # =====================================================
+    # Credit Profile
+    # =====================================================
 
     with st.expander("💳 Credit Profile"):
 
-        st.write("**Previous Loan:**", st.session_state.get("previous_loan", ""))
+        st.write(
+            "**Previous Loan:**",
+            st.session_state.get("previous_loan", "Not provided")
+        )
 
-        st.write("**Credit History:**", st.session_state.get("credit_history", ""))
+        st.write(
+            "**Credit History:**",
+            st.session_state.get("credit_history", "Not provided")
+        )
 
-        st.write("**Credit Score:**", st.session_state.get("credit_score", ""))
+        st.write(
+            "**Credit Score:**",
+            st.session_state.get("credit_score", "Not provided")
+        )
 
     st.divider()
 
-    # -----------------------------------------------------
-    # Submit
-    # -----------------------------------------------------
+    # =====================================================
+    # Submit Application
+    # =====================================================
 
     if st.button(
         "🚀 Submit Application",
@@ -112,14 +196,31 @@ def show_review():
 
         with st.spinner("Analyzing your application..."):
 
-            payload = build_payload()
+            try:
 
-            result = predict(payload)
+                # Build ML payload
+                payload = build_payload()
 
-            st.session_state["prediction"] = result["loan_approved"]
+                # Send payload to FastAPI
+                result = predict(payload)
 
-            st.session_state["probability"] = result["approval_probability"]
+                # Store prediction
+                st.session_state["prediction"] = result["loan_approved"]
 
-            st.session_state["step"] = 7
+                st.session_state["probability"] = result[
+                    "approval_probability"
+                ]
 
-            st.rerun()
+                # Move to result page
+                st.session_state["step"] = 7
+
+                st.rerun()
+
+            except Exception as e:
+
+                st.error(
+                    "Unable to process the application. "
+                    "Please try again."
+                )
+
+                st.exception(e)
