@@ -31,15 +31,24 @@ def show_registration():
         )
         st.session_state["full_name"] = name
 
+        gender_options = [
+            "Select",
+            "Male",
+            "Female",
+        ]
+        current_gender = st.session_state.get("gender", "Select")
+
+        if current_gender not in gender_options:
+            current_gender = "Select"
+
         gender = st.selectbox(
             "Gender *",
-            [
-                "Select",
-                "Male",
-                "Female",
-            ],
-            key="gender",
+            gender_options,
+            index=gender_options.index(current_gender),
         )
+
+        st.session_state["gender"] = gender
+
 
     with col2:
 
