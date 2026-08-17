@@ -31,7 +31,6 @@ def show_registration():
         )
         st.session_state["full_name"] = name
 
-    
         st.selectbox(
             "Gender *",
             [
